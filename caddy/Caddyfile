@@ -1,0 +1,7 @@
+crm.axpo:2019 {
+  handle /api* {
+		reverse_proxy http://backend:8000
+  }
+  reverse_proxy http://frontend:3000
+  tls internal
+}

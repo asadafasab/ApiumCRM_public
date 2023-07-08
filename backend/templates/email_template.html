@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="bg">
+  <head>
+    <style>
+      .bg {
+        background-color: #fff;
+        color: #262729;
+      }
+      .border {
+        border: 1px solid black;
+        border-collapse: collapse;
+        border-radius: 10px;
+        padding: 1px;
+        margin: 1px;
+      }
+    </style>
+  </head>
+  <body class="bg">
+    <br />
+
+    <h2>Umowy do poprawy</h2>
+
+    <table class="border">
+      <thead>
+        <tr class="border">
+          <th class="border">NIP</th>
+          <th class="border">NR UMOWY</th>
+          <th class="border">NAZWA FIRMY</th>
+          <th class="border">DATA PODPISANIA</th>
+          <th class="border">DATA ZMIANY STATUSU</th>
+          <th class="border">HANDLOWIEC (tylko 1)</th>
+          <th class="border">STATUS</th>
+          <th class="border">BŁĘDY</th>
+          <th class="border">USTALENIA</th>
+          <th class="border">KTO BEDZIE POPRAWIAŁ</th>
+          <th class="border">KTO WPROWADZAŁ</th>
+          <th class="border">ODDZIAL</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for item in tofix %}
+        <tr class="border">
+          <td class="p1 border">{{ item.0 }}</td>
+          <td class="p1 border">{{ item.1 }}</td>
+          <td class="p1 border">{{ item.2 }}</td>
+          <td class="p1 border">{{ item.3 }}</td>
+          <td class="p1 border">{{ item.4 }}</td>
+          <td class="p1 border">{{ item.5 }}</td>
+          <td class="p1 border">{{ item.6 }}</td>
+          <td class="p1 border">{{ item.7 }}</td>
+          <td class="p1 border">{{ item.8 }}</td>
+          <td class="p1 border">{{ item.9 }}</td>
+          <td class="p1 border">{{ item.10 }}</td>
+          <td class="p1 border">{{ item.11 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- <h2>Interview</h2>
+    <table class="border">
+      <thead>
+        <tr class="border">
+          <th class="border">DATA</th>
+          <th class="border">ILOŚĆ APLIKACJI</th>
+          <th class="border">ILOŚĆ BRAK KONTAKTU</th>
+          <th class="border">
+            ILOŚĆ BRAK KONTAKTU - (ktoś odebrał za N razem)
+          </th>
+          <th class="border">ILOŚĆ OBECNYCH NA INTERVIEW</th>
+          <th class="border">ILOŚĆ ZAPROSZONYCH NA TRENNING</th>
+          <th class="border">ILOŚĆ TRENINGÓW</th>
+          <th class="border">ILOŚĆ PIERWSZY DZIEN W PRACY</th>
+          <th class="border">ILOŚĆ REZYGNACJI Z PRACY</th>
+          <th class="border">ILOŚĆ HANDLOWCÓW W BIURZE</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for item in interview %}
+        <tr class="border">
+          {% for i in item %}
+          <td class="p1 border">{{ i }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> -->
+
+    <h2>Umowy niezdane - braki</h2>
+    <table class="border">
+      <thead>
+        <tr class="border">
+          <th class="border">NIP</th>
+          <th class="border">NAZWA</th>
+          <th class="border">HANDLOWIEC</th>
+          <th class="border">DATA PODPISANIA UMOWY</th>
+          <th class="border">RZECZY DO POPRAWY</th>
+          <th class="border">ODDZIAŁ</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for item in incomplete %}
+        <tr class="border">
+          <td class="p1 border">{{ item.0 }}</td>
+          <td class="p1 border">{{ item.1 }}</td>
+          <td class="p1 border">{{ item.2 }}</td>
+          <td class="p1 border">{{ item.3 }}</td>
+          <td class="p1 border">{{ item.4 }}</td>
+          <td class="p1 border">{{ item.5 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

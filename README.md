@@ -1,0 +1,26 @@
+# ApiumCRM
+
+CRM for some company (kinda) public version.
+
+### backend/.env example
+
+```
+POSTGRES_USER=user
+POSTGRES_PASSWORD=pass
+POSTGRES_NAME=name
+POSTGRES_DB=db_name
+SECRET_KEY=123
+EMAILS={"city":["email"]} # or  '{"city":["email"]}'
+DEBUG=0 # or 1
+PIP_DISABLE_PIP_VERSION_CHECK
+PYTHONUNBUFFERED
+PYTHONDONTWRITEBYTECODE
+WHATSAPP_API_KEY=123
+PHONE_NUMBER=+123
+HOST_DB=host
+EMAIL_HOST_USER=email
+EMAIL_HOST_PASSWORD=pass
+SHEET_ID=id
+GIDS=1,2,3,4,0
+SHEET_TOFIX=1d2dx2
+```

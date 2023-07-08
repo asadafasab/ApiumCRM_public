@@ -1,0 +1,60 @@
+version: "3.3"
+
+services:
+  caddy:
+    build:
+      context: ./caddy/
+    ports:
+      - "443:2019"
+    expose:
+      - 587
+      - 25
+    depends_on:
+      - frontend
+    volumes:
+      - ./certs:/root/certs
+      - caddy_data:/data
+      - caddy_config:/config
+
+  backend:
+    env_file:
+      - .env
+    build: backend/.
+    expose:
+      - 8000
+      - 587
+      - 25
+    restart: always
+    depends_on:
+      - db
+
+  frontend:
+    env_file:
+      - .env
+    build: frontend/.
+    expose:
+      - 3000
+    depends_on:
+      - backend
+
+  # migration:
+  #   env_file:
+  #     - .env
+  #   command: python manage.py migrate --noinput # && python manage.py collectstatic --noinput
+  #   depends_on:
+  #     - db
+
+  db:
+    restart: unless-stopped
+    image: postgres:alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:
